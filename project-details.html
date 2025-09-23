@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electrical Equipment Sales Dashboard - Project Details</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #222;
+    }
+
+    header {
+      background-color: #007bff;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+
+    .project-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .section-card {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      margin-bottom: 50px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .section-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+    }
+
+    .section-card img {
+      width: 100%;
+      display: block;
+    }
+
+    .section-content {
+      padding: 25px 30px;
+    }
+
+    .section-content h2 {
+      margin-top: 0;
+      color: #007bff;
+      font-size: 1.8rem;
+    }
+
+    .section-content p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-top: 10px;
+      color: #555;
+    }
+
+    .section-content ul {
+      margin-top: 15px;
+      padding-left: 20px;
+      color: #555;
+    }
+
+    .section-content li {
+      margin-bottom: 8px;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin: 30px 0;
+      padding: 12px 25px;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #0056b3;
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      .section-content h2 {
+        font-size: 1.5rem;
+      }
+      .section-content p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Electrical Equipment Sales Dashboard</h1>
+    <p>Detailed explanation of the 3 dashboard pages with visuals and insights</p>
+  </header>
+
+  <div class="project-section">
+    
+    <!-- Section 1: Executive / Product Insights -->
+    <div class="section-card">
+      <img src="images/executive-dashboard.png" alt="Executive/Product Insights Dashboard">
+      <div class="section-content">
+        <h2>Executive / Product Insights</h2>
+        <p>This page provides a complete overview of sales and product performance. It includes KPI cards for Revenue YTD, Profit YTD, Units Sold YTD, and Revenue Achievement %, giving a quick snapshot of business outcomes. The row-wise layout consists of:</p>
+        <ul>
+          <li><strong>Row 2 – Sales Distribution & Trends:</strong> Funnel chart for Top Sellers and Line chart for Month-wise Product Category Sales to identify high-performing products and seasonal trends.</li>
+          <li><strong>Row 3 – Profit Decomposition & Root Cause Analysis:</strong> Profit Decomposition Tree to analyze which products, regions, pricing, and costs drive profits.</li>
+        </ul>
+        <p>This section enables stakeholders to monitor product-level performance, detect trends, and make informed decisions.</p>
+      </div>
+    </div>
+    <!-- Section 3: Sales Analysis / Forecast -->
+    <div class="section-card">
+      <img src="images/sales-forecast-dashboard.png" alt="Sales Analysis / Forecast Dashboard">
+      <div class="section-content">
+        <h2>Sales Analysis / Forecast</h2>
+        <p>This page provides advanced insights into sales trends, forecasted revenue, and predictive analytics. It includes KPI cards for tracking targets, line charts for monthly trends, and visuals for segment-wise performance.</p>
+        <ul>
+          <li>Enables identification of growth opportunities and seasonal patterns.</li>
+          <li>Supports strategic decisions by showing expected revenue trends and potential areas for improvement.</li>
+          <li>Includes interactive slicers for Year, Month, Region, and Product Category to filter insights dynamically.</li>
+        </ul>
+        <p>This page empowers stakeholders to make data-driven decisions for sales planning and forecasting.</p>
+      </div>
+      
+    </div>
+<!-- Section 2: Customer Insights -->
+    <div class="section-card">
+      <img src="images/customer-insights-dashboard.png" alt="Customer Insights Dashboard">
+      <div class="section-content">
+        <h2>Customer Insights</h2>
+        <p>The Customer Insights page focuses on understanding the customer base. It includes KPI cards for Top Customers by Revenue, Customers Acquired YTD, Customer Lifetime Value, and Total Customers YTD. The layout includes:</p>
+        <ul>
+          <li><strong>Row 2 – Segmentation & Geography:</strong> Column chart for Customer Distribution by Revenue Segment, Map for Revenue by Region, and Gauge for Orders Achievement YTD.</li>
+          <li><strong>Row 3 – Customer Trends & Narrative:</strong> Line chart for Top 10 Customers Revenue Trend and a narrative card providing key insights.</li>
+        </ul>
+        <p>This page helps in identifying high-value customers, regional revenue distribution, and actionable trends for customer-focused strategies.</p>
+      </div>
+    </div>
+    <a href="index.html#projects" class="back-btn">Back to Projects</a>
+
+  </div>
+
+</body>
+</html>
