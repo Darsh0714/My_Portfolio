@@ -36,3 +36,6 @@ document.getElementById('contactForm').addEventListener('submit', function(e){
       alert('Failed to send message: ' + error.text);
     });
 });
+document.querySelector(".menu-toggle").addEventListener("click", () => {
+  document.querySelector(".main-nav").classList.toggle("active");
+});
