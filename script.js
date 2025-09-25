@@ -1,13 +1,8 @@
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if(target){
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-});
 // Smooth scrolling
+
+document.querySelector(".menu-toggle").addEventListener("click", () => {
+  document.querySelector(".main-nav").classList.toggle("active");
+});
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     e.preventDefault();
@@ -36,6 +31,5 @@ document.getElementById('contactForm').addEventListener('submit', function(e){
       alert('Failed to send message: ' + error.text);
     });
 });
-document.querySelector(".menu-toggle").addEventListener("click", () => {
-  document.querySelector(".main-nav").classList.toggle("active");
-});
+
+
