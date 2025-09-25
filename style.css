@@ -89,16 +89,27 @@ body {
     padding: 10px;
   }
 
-  .menu-toggle {
-    display: block;
-    cursor: pointer;
-    font-size: 24px;
-  }
-}
-
-/* Desktop styles */
+/* Default: hide hamburger on desktop */
 .menu-toggle {
   display: none;
+  cursor: pointer;
+  font-size: 28px;
+  user-select: none;
+}
+
+/* Show hamburger on mobile */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    display: none; /* hide normal nav */
+  }
+
+  .main-nav.active {
+    display: block; /* show when toggled */
+  }
 }
 
 .site-name {
