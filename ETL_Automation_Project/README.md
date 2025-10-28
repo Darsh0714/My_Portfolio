@@ -9,13 +9,9 @@ A final visualization displays product-wise profit, making it easy to track fina
 Project Objective
 
 Automate data extraction from multiple sales CSV files
-
 Transform and clean data to prepare for reporting
-
 Add business metrics such as Profit (Sales – Cost)
-
 Export the cleaned dataset for analytics or Power BI integration
-
 Visualize Profit by Product for quick insights
 
 Data Sources
@@ -27,15 +23,12 @@ Project Flow
 1. Data Extraction
 
 Used Python’s os and glob modules to automatically fetch all CSV files from a given folder.
-
 Loaded data dynamically using pandas.
 
 2. Data Transformation
 
 Combined all CSV files into a single DataFrame.
-
 Calculated Profit = Sales - Cost.
-
 Removed duplicates and standardized column names (if required).
 
 3. Data Loading
@@ -45,13 +38,11 @@ Exported the cleaned dataset into a new CSV file: clean_sales.csv.
 4. Data Visualization
 
 Created a bar chart using Matplotlib to show Profit by Product.
-
 Helped identify the most profitable items quickly.
 
 Technologies Used
 
 Python Libraries: pandas, glob, os, matplotlib
-
 Environment: Jupyter Notebook
 
 Output: Cleaned CSV file + Profit visualization
@@ -59,9 +50,7 @@ Output: Cleaned CSV file + Profit visualization
 Outcome
 
 Automated ETL pipeline that can dynamically handle new data files
-
 Ready-to-use dataset for Power BI or Excel reporting
-
 Demonstrated fundamental data engineering workflow using Python
 
 Folder Structure
@@ -73,7 +62,8 @@ ETL_Automation_Project/
 │   ├── sales_mar.csv
 │
 ├── sales_etl.ipynb
-├── clean_sales.csv
+├── output_data/
+|    ├── clean_sales_sampleoutputfiles.csv
 └── README.md
 
 Next Steps
