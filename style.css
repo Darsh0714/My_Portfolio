@@ -289,6 +289,11 @@ body {
   height: 400px;
   perspective: 1000px;
 }
+.project-card:hover {
+  transform: scale(1.03);
+  transition: 0.3s ease;
+}
+
 
 .card-inner {
   position: relative;
