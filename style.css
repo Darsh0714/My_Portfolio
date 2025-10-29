@@ -255,7 +255,7 @@ body {
   background: #333;
 }
 
-/* ===== Projects Section ===== */
+/* ===== Projects Section (Cleaned + Fixed Flip Cards) ===== */
 .projects-section {
   padding: 80px 20px;
   background: #f9f9f9;
@@ -265,16 +265,10 @@ body {
   text-align: center;
   margin-bottom: 30px;
   font-size: clamp(1.8rem, 4vw, 2rem);
+  color: #111;
 }
 
-.projects-grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;         
-  gap: 30px;                 
-  padding: 20px 0;
-}
-/* ==== Transparent Flip Cards ==== */
+/* Grid for flip cards */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -283,13 +277,20 @@ body {
   margin-top: 30px;
 }
 
+/* Each card container */
 .project-card {
   width: 100%;
   max-width: 320px;
   height: 400px;
   perspective: 1000px;
+  transition: transform 0.3s ease;
 }
 
+.project-card:hover {
+  transform: scale(1.03);
+}
+
+/* Inner 3D area */
 .card-inner {
   position: relative;
   width: 100%;
@@ -314,14 +315,16 @@ body {
   overflow: hidden;
 }
 
-/* Front: only the image + dark overlay + title */
+/* Show PNGs properly without background issues */
 .card-front img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* ensures PNG transparency is preserved */
+  background: #f9f9f9; /* fallback if PNG transparent */
   border-radius: 15px;
 }
 
+/* Dark overlay */
 .card-front::after {
   content: "";
   position: absolute;
@@ -370,69 +373,40 @@ body {
   font-size: 0.85rem;
   list-style-type: disc;
   padding-left: 18px;
+  margin-bottom: 15px;
 }
 
+/* Fixed project button */
 .card-back .project-btn {
   display: inline-block;
-  align-self: center;
   background: #3b82f6;
   color: #fff;
-  padding: 8px 14px;
+  padding: 10px 18px;
   border-radius: 6px;
   text-decoration: none;
-  transition: background 0.3s ease;
+  text-align: center;
+  width: fit-content;
+  align-self: center;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .card-back .project-btn:hover {
   background: #2563eb;
+  transform: scale(1.05);
 }
 
-/* Hover lift for subtle motion */
-.project-card:hover {
-  transform: scale(1.03);
-  transition: 0.3s ease;
+.card-back .project-btn:active {
+  transform: scale(0.97);
 }
 
-
-.project-card {
-  max-width: 600px;
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  margin: 10px;
+/* Pointer fix: ensure entire button area clickable */
+.card-back .project-btn,
+.card-back .project-btn * {
+  pointer-events: auto;
+  cursor: pointer;
 }
 
-.project-card h3 {
-  font-size: clamp(1.2rem, 3vw, 1.5rem);
-  margin-bottom: 10px;
-}
-
-.project-card p,
-.project-card ul {
-  font-size: clamp(0.85rem, 2vw, 1rem);
-  margin-bottom: 10px;
-}
-
-.project-card ul li {
-  font-size: clamp(0.8rem, 1.8vw, 0.95rem);
-  margin-left: 15px;
-  list-style-type: disc;
-}
-
-.project-btn {
-  display: inline-block;
-  margin-top: 15px;
-  background: #000;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 6px;
-  text-decoration: none;
-}
-
-.project-btn:hover {
-  background: #333;
-}
 
 /* ===== Contact Section ===== */
 .contact-section {
