@@ -296,7 +296,6 @@ body {
   transform: rotateY(180deg);
 }
 
-/* Front & Back */
 .card-front,
 .card-back {
   position: absolute;
@@ -306,8 +305,23 @@ body {
   overflow: hidden;
   backface-visibility: hidden;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-  transform: translateZ(0); /* prevent image blur */
+  transform: translateZ(0);
+  z-index: 0;
 }
+
+/* Ensure front doesn’t block clicks */
+.card-front {
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Allow full clickability on back (button area) */
+.card-back {
+  transform: rotateY(180deg);
+  z-index: 1;
+  pointer-events: auto;
+}
+
 
 /* Front face */
 .card-front {
