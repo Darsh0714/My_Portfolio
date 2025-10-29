@@ -271,7 +271,7 @@ body {
 /* Grid layout */
 .projects-grid {
   display: grid;
-  gap: 1rem; 
+  gap: 0.5rem; 
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   padding: 0.5rem 1rem;
   justify-items: center;
