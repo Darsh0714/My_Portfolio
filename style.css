@@ -274,6 +274,102 @@ body {
   gap: 30px;                 
   padding: 20px 0;
 }
+/* ==== Project Flip Cards ==== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  margin-top: 30px;
+}
+
+.project-card {
+  width: 100%;
+  max-width: 320px;
+  height: 400px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  border-radius: 15px;
+}
+
+.project-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.card-front {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-front img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+}
+
+.card-front h3 {
+  padding: 10px;
+  color: #000;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.card-back {
+  background: #fafafa;
+  transform: rotateY(180deg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #333;
+}
+
+.card-back p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.card-back ul {
+  margin-top: 10px;
+  padding-left: 20px;
+  font-size: 0.9rem;
+}
+
+.card-back .project-btn {
+  display: inline-block;
+  background: #0078d7;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.card-back .project-btn:hover {
+  background: #005ea8;
+}
 
 .project-card {
   max-width: 600px;
