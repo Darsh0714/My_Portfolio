@@ -268,23 +268,22 @@ body {
   color: #222;
 }
 
-/* Grid layout for cards */
+/* Grid layout */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 18px; /* compact gap */
+  gap: 16px;
   justify-items: center;
-  align-items: start;
 }
 
-/* Flip card container */
+/* Card wrapper */
 .project-card {
   perspective: 1000px;
   width: 280px;
   height: 320px;
 }
 
-/* Inner wrapper */
+/* Flip inner container */
 .card-inner {
   position: relative;
   width: 100%;
@@ -297,7 +296,7 @@ body {
   transform: rotateY(180deg);
 }
 
-/* Front and Back Faces */
+/* Front & Back */
 .card-front,
 .card-back {
   position: absolute;
@@ -306,35 +305,42 @@ body {
   border-radius: 12px;
   overflow: hidden;
   backface-visibility: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transform: translateZ(0); /* prevent image blur */
 }
 
-/* Card Front */
+/* Front face */
 .card-front {
-  background: #f9fafb;
+  background: #fff;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
   text-align: center;
-  transition: transform 0.3s ease;
+  pointer-events: none; /* allow clicks on back side */
 }
 
 .card-front img {
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
+  border-radius: 12px;
+  transform: translateZ(0); /* removes blur on flip */
 }
 
 .card-title {
-  background: #1e293b;
-  color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  padding: 10px;
-  font-weight: bold;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 10px 0;
+  font-weight: 600;
+  font-size: 1rem;
 }
 
-/* Card Back */
+/* Back face */
 .card-back {
   background: #1e293b;
   color: #fff;
@@ -343,9 +349,28 @@ body {
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
+  pointer-events: auto; /* button clickable */
 }
 
-/* Ensure the button is always clickable */
+/* Text on back */
+.card-back h3 {
+  color: #60a5fa;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.card-back p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.card-back ul {
+  list-style: disc;
+  font-size: 0.85rem;
+  padding-left: 18px;
+}
+
+/* View button */
 .project-btn {
   display: inline-block;
   background: #facc15;
@@ -357,17 +382,12 @@ body {
   text-align: center;
   width: 100%;
   transition: background 0.3s ease;
-  pointer-events: auto;
   z-index: 10;
+  cursor: pointer;
 }
 
 .project-btn:hover {
   background: #fbbf24;
-}
-
-/* Make sure the back face doesn’t block clicks */
-.card-back * {
-  pointer-events: auto;
 }
 
 
