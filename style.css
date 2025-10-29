@@ -271,9 +271,11 @@ body {
 /* Grid layout */
 .projects-grid {
   display: grid;
+  gap: 1rem; 
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
+  padding: 0.5rem 1rem;
   justify-items: center;
+  align-items: stretch;
 }
 
 /* Card wrapper */
