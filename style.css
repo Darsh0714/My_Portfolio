@@ -255,157 +255,120 @@ body {
   background: #333;
 }
 
-/* ===== Projects Section (Compact + Fixed Button Click Area) ===== */
+/* ===== Projects Section ===== */
 .projects-section {
+  background: #fff;
   padding: 60px 20px;
-  background: #f9f9f9;
+  text-align: center;
 }
 
 .projects-section h2 {
-  text-align: center;
-  margin-bottom: 25px;
-  font-size: clamp(1.8rem, 4vw, 2rem);
-  color: #111;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #222;
 }
 
-/* Grid for flip cards */
+/* Grid layout for cards */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 15px; /* reduced gap */
+  gap: 18px; /* compact gap */
   justify-items: center;
-  margin-top: 20px;
+  align-items: start;
 }
 
-/* Each flip card container */
+/* Flip card container */
 .project-card {
-  width: 100%;
-  max-width: 300px;
-  height: 380px;
   perspective: 1000px;
-  transition: transform 0.3s ease;
+  width: 280px;
+  height: 320px;
 }
 
-.project-card:hover {
-  transform: scale(1.03);
-}
-
-/* Inner flip area */
+/* Inner wrapper */
 .card-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.8s;
+  transition: transform 0.6s ease;
   transform-style: preserve-3d;
-  border-radius: 15px;
 }
 
 .project-card:hover .card-inner {
   transform: rotateY(180deg);
 }
 
-/* === FRONT SIDE === */
+/* Front and Back Faces */
 .card-front,
 .card-back {
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 15px;
-  backface-visibility: hidden;
+  border-radius: 12px;
   overflow: hidden;
+  backface-visibility: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Card Front */
+.card-front {
+  background: #f9fafb;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
 }
 
 .card-front img {
   width: 100%;
-  height: 100%;
-  object-fit: contain; /* keeps PNG transparency */
-  background: #f9f9f9;
-  border-radius: 15px;
-}
-
-.card-front::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  height: 200px;
+  object-fit: cover;
 }
 
 .card-title {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 1.05rem;
+  background: #1e293b;
   color: #fff;
-  font-weight: 600;
-  z-index: 2;
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
 }
 
-/* === BACK SIDE === */
+/* Card Back */
 .card-back {
-  background: linear-gradient(145deg, #111827, #1f2937);
-  color: #f9fafb;
+  background: #1e293b;
+  color: #fff;
   transform: rotateY(180deg);
-  padding: 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 20px;
 }
 
-.card-back h3 {
-  font-size: 1.05rem;
-  margin-bottom: 10px;
-  color: #60a5fa;
-}
-
-.card-back p {
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-.card-back ul {
-  font-size: 0.85rem;
-  list-style-type: disc;
-  padding-left: 18px;
-  margin-bottom: 12px;
-}
-
-/* === Fully Clickable Project Button === */
-.card-back .project-btn {
-  display: block; /* ensures full clickable area */
-  width: 100%;
-  text-align: center;
-  background: #3b82f6;
-  color: #fff;
-  padding: 10px 0;
-  border-radius: 6px;
+/* Ensure the button is always clickable */
+.project-btn {
+  display: inline-block;
+  background: #facc15;
+  color: #000;
+  padding: 10px 16px;
+  border-radius: 8px;
   text-decoration: none;
-  cursor: pointer;
-  user-select: none;
-  transition: background 0.3s ease, transform 0.2s ease;
-  box-sizing: border-box;
-}
-
-.card-back .project-btn:hover {
-  background: #2563eb;
-  transform: scale(1.03);
-}
-
-.card-back .project-btn:active {
-  transform: scale(0.97);
-}
-
-/* Ensure click passes through inner elements */
-.card-back .project-btn *,
-.card-back .project-btn {
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+  transition: background 0.3s ease;
   pointer-events: auto;
-  cursor: pointer;
+  z-index: 10;
 }
 
+.project-btn:hover {
+  background: #fbbf24;
+}
+
+/* Make sure the back face doesn’t block clicks */
+.card-back * {
+  pointer-events: auto;
+}
 
 
 /* ===== Contact Section ===== */
