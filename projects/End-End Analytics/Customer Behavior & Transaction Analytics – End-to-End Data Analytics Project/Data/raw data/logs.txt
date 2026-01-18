@@ -1,0 +1,4 @@
+2023-05-01 INFO Customer 101 submitted claim
+2023-05-02 ERROR Transaction failed for Customer 102
+2023-05-03 INFO Customer 103 premium paid
+2023-05-04 WARNING Late claim submission by Customer 104

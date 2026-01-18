@@ -1,0 +1,26 @@
+[
+    {
+        "Transaction_ID": 301,
+        "Customer_ID": 101,
+        "Amount": 250,
+        "Date": "2023-05-01"
+    },
+    {
+        "Transaction_ID": 302,
+        "Customer_ID": 102,
+        "Amount": 400,
+        "Date": "2023-05-03"
+    },
+    {
+        "Transaction_ID": 303,
+        "Customer_ID": 103,
+        "Amount": 150,
+        "Date": "2023-05-05"
+    },
+    {
+        "Transaction_ID": 304,
+        "Customer_ID": 104,
+        "Amount": 300,
+        "Date": "2023-05-07"
+    }
+]
