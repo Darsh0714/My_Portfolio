@@ -158,4 +158,5 @@ streamlit run app.py
 ## Author
 
 _**Darshini R**  
-**Gen AI Enthusiast**_
+**Gen AI Enthusiast**_  
+__**GitHub Project Directory:https://github.com/Darsh0714/rag-document-assistant**
