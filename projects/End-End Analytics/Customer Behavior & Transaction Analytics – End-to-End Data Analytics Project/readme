@@ -2,35 +2,33 @@
 
 ## 📌 Project Overview
 
-This project demonstrates an **end-to-end data analytics workflow** for analyzing customer, policy, transaction, and application-log data.
+This project demonstrates an **end-to-end data analytics workflow** for processing and analyzing customer, policy, transaction, and application log data.
 
-The project focuses on transforming **raw multi-source data** into structured, analysis-ready datasets through:
+The objective is to transform **raw multi-source datasets** into structured, analysis-ready datasets through:
 
-* **Data Profiling**
-* **Data Cleaning**
-* **Data Quality Validation**
-* **Feature Engineering**
-* **Data Transformation**
-* **Customer-Level Aggregation**
-* **Star Schema Data Modeling**
-* **Analytical Dataset Creation**
+* Data Profiling
+* Data Cleaning
+* Data Quality Validation
+* Feature Engineering
+* Data Aggregation
+* Customer-Level Analytics
+* Log Analytics
+* Star Schema Data Modeling
 
-The final datasets combine customer attributes, financial metrics, transaction activity, policy information, and application-log behavior to provide a consolidated view of **customer activity and risk-related indicators**.
+The final output is a consolidated customer analytics dataset containing financial metrics, transaction behavior, risk indicators, and log-derived insights.
 
 ---
 
 ## 🎯 Project Objectives
 
-The main objectives of the project are to:
-
-1. Profile raw data from multiple file formats.
-2. Identify and handle **missing values, duplicates, inconsistent formats, and invalid data types**.
-3. Standardize datasets for downstream analysis.
-4. Create meaningful **customer-level analytical features**.
-5. Transform unstructured application logs into structured data.
-6. Aggregate transaction and log activity at the customer level.
-7. Design a **Star Schema** separating dimensions and fact-oriented analytical data.
-8. Export cleaned and modeled datasets for further analysis and visualization.
+* Profile raw datasets from multiple formats
+* Clean and standardize customer, policy, transaction, and log data
+* Handle missing values and duplicates
+* Perform feature engineering
+* Parse semi-structured logs
+* Generate customer-level analytical metrics
+* Create a dimensional data model
+* Export cleaned analytical datasets
 
 ---
 
@@ -51,7 +49,6 @@ Customer Behavior & Transaction Analytics – End-to-End Data Analytics Project/
 │   │   └── readme
 │   │
 │   └── cleaned data/
-│       └── cleaned / transformed datasets
 │
 └── Python Analysis/
     └── Jupyter notebook files/
@@ -60,15 +57,15 @@ Customer Behavior & Transaction Analytics – End-to-End Data Analytics Project/
 
 ---
 
-## 🔄 End-to-End Workflow
+## 🔄 Project Workflow
 
 ```text
 Raw Data
    │
-   ├── Customers
-   ├── Policies
-   ├── Transactions
-   └── Application Logs
+   ├── Customers.csv
+   ├── Policies.xlsx
+   ├── Transactions.json
+   └── Logs.txt
           │
           ▼
    Data Profiling
@@ -77,71 +74,49 @@ Raw Data
    Data Cleaning
           │
           ▼
-   Data Quality Validation
-          │
-          ▼
    Feature Engineering
           │
           ▼
-   Data Aggregation & Transformation
+   Data Aggregation
           │
           ▼
-   Star Schema / Analytical Modeling
+   Customer Analytics Dataset
           │
           ▼
-   Customer-Level Analytical Dataset
+   Star Schema Data Model
           │
           ▼
-   Exported Cleaned & Modeled Data
+   Exported Analytical Data
 ```
 
 ---
 
-# 📊 Data Sources
+## 📊 Data Sources
 
-The project works with four different data sources.
-
-| Dataset      | Format | Purpose                                     |
-| ------------ | ------ | ------------------------------------------- |
-| Customers    | CSV    | Customer and financial information          |
-| Policies     | Excel  | Policy type and policy duration information |
-| Transactions | JSON   | Customer transaction activity               |
-| Logs         | TXT    | Application/customer activity logs          |
-
-Using multiple formats demonstrates the ability to work with **heterogeneous data sources** before bringing them into a common analytical structure.
+| Dataset      | Format | Purpose                                    |
+| ------------ | ------ | ------------------------------------------ |
+| Customers    | CSV    | Customer information and financial metrics |
+| Policies     | Excel  | Policy information                         |
+| Transactions | JSON   | Customer transaction data                  |
+| Logs         | TXT    | Application and customer activity logs     |
 
 ---
 
-# 1. 👤 Customer Data
-
-### Source
-
-`Data/raw data/customers.csv`
-
-The customer dataset contains:
-
-* `Customer_ID`
-* `Name`
-* `Premium_Amount`
-* `Claim_Amount`
-
-The notebook profiles the dataset using Pandas and validates its structure and data types before transformation.
+## 👤 Customer Data Processing
 
 ### Data Cleaning
 
-The customer data undergoes:
+The customer dataset is processed to improve data quality and consistency.
 
-* **Column-name standardization**
-* **String trimming**
-* **Missing-name handling**
-* **Numeric type conversion**
-* **Duplicate removal**
+Key steps include:
 
-Numeric fields are converted using `pd.to_numeric(..., errors="coerce")`, followed by missing-value handling.
+* Trimming leading and trailing spaces
+* Handling missing customer names
+* Converting numeric columns to appropriate data types
+* Handling invalid numeric values
+* Removing duplicate records
 
 ### Feature Engineering
-
-Customer-level analytical features are derived from the financial fields:
 
 #### Profit
 
@@ -155,151 +130,79 @@ Profit = Premium Amount - Claim Amount
 Claim Ratio = Claim Amount / Premium Amount
 ```
 
-#### Risk Level
+#### Risk Classification
 
-Customers are classified based on claim ratio:
+Customers are classified based on their claim ratio:
 
-| Claim Ratio | Risk Level  |
-| ----------: | ----------- |
-|      ≤ 0.30 | Low Risk    |
-| 0.30 – 0.80 | Medium Risk |
-|      > 0.80 | High Risk   |
+| Claim Ratio       | Risk Level  |
+| ----------------- | ----------- |
+| ≤ 0.30            | Low Risk    |
+| > 0.30 and ≤ 0.80 | Medium Risk |
+| > 0.80            | High Risk   |
 
-#### Premium Category
+### Premium Category
 
-Customers are categorized as:
-
-* **High_Value** — Premium ≥ 1500
-* **Standard** — Premium < 1500
-
-These derived features are incorporated into the customer-level analytical model.
+Premium values are categorized to support customer-level analysis.
 
 ---
 
-# 2. 📄 Policy Data
+## 📄 Policy Data Processing
 
-### Source
-
-`Data/raw data/policies.xlsx`
-
-The policy dataset contains:
-
-* `Policy_ID`
-* `Policy_Type`
-* `Start_Date`
-* `End_Date`
-
-The notebook performs profiling and validates null values before transformation.
+The policy dataset is loaded from an Excel file and processed for analysis.
 
 ### Data Cleaning
 
-The policy data is processed through:
+* Profile the dataset
+* Validate missing values
+* Standardize column names
+* Remove unnecessary inconsistencies
+* Convert policy start and end dates to datetime format
 
-* **String trimming**
-* **Column-name standardization**
-* **Date conversion**
-* **Duplicate removal**
-* **Policy ID validation**
+### Derived Information
 
-Date fields are converted into Pandas datetime values for further analysis.
-
-### Feature Engineering
-
-#### Policy Duration
-
-```text
-Policy Duration = End Date - Start Date
-```
-
-A `policy_duration_days` feature is created to represent the duration of each policy.
-
-#### Policy Status
-
-A derived `policy_status` field classifies policies as:
-
-* **Active**
-* **Expired**
-
-based on the policy end date.
+Policy dates are used to support policy duration and status-related analysis.
 
 ---
 
-# 3. 💳 Transaction Data
+## 💳 Transaction Analysis
 
-### Source
+Transaction data is loaded from the JSON source and processed at the customer level.
 
-`Data/raw data/transactions.json`
+### Processing Steps
 
-The transaction dataset contains:
-
-* `Transaction_ID`
-* `Customer_ID`
-* `Amount`
-* `Date`
-
-The dataset is loaded directly from JSON and profiled using Pandas.
-
-### Data Cleaning
-
-The transaction pipeline includes:
-
-* **Column-name standardization**
-* **Data type conversion**
-* **Date parsing**
-* **Numeric amount validation**
-* **Duplicate removal**
-* **Null-value validation**
-* **Removal of records with missing critical fields**
-
-The transaction ID, customer ID, amount, and date are explicitly converted into appropriate analytical types.
+* Load transaction data
+* Convert transaction dates into appropriate date format
+* Group transactions by `customer_id`
+* Identify the first transaction date
+* Identify the last transaction date
+* Merge transaction-level information with the customer analytical dataset
 
 ### Customer-Level Transaction Features
 
-Transaction dates are aggregated by customer to derive:
-
-* `first_transaction`
-* `last_transaction`
-
-using **group-by aggregation with minimum and maximum dates**.
-
-The cleaned transaction dataset is exported as a fact-oriented analytical dataset.
+```text
+First Transaction Date
+Last Transaction Date
+```
 
 ---
 
-# 4. 📝 Application Log Data
+## 📝 Log Analytics
 
-### Source
-
-`Data/raw data/logs.txt`
-
-The log file contains semi-structured records containing:
-
-```text
-Date + Log Level + Message
-```
-
-Example log events include:
-
-* Customer claim submission
-* Failed transactions
-* Premium payments
-* Late claim submissions
-
-The raw log data is initially loaded as a single column and then transformed into structured fields.
+The application logs are initially available as raw text and are transformed into structured data for analysis.
 
 ### Log Parsing
 
-A custom parsing function separates each log record into:
+The raw log data is parsed into:
 
-* `date`
-* `level`
-* `message`
+```text
+Date | Level | Message
+```
 
-The customer ID is subsequently extracted from the message using **regular expressions**.
+Customer IDs are extracted from log messages using **Regular Expressions (Regex)**.
 
-### Log-Based Features
+### Log-Derived Features
 
-The project derives customer-level operational features including:
+The following customer-level features are generated:
 
 * `log_count`
 * `error_count`
@@ -309,15 +212,15 @@ The project derives customer-level operational features including:
 * `has_payment`
 * `days_since_last_log`
 
-## The log count and error count are generated using **group-by aggregation**, while claim and payment indicators are derived from log-message content.
+These features help combine application activity with customer-level analytics.
 
-# ⭐ Customer-Level Analytical Dataset
+---
 
-The processed customer dataset is used as the foundation for a consolidated analytical dataset.
+## 📈 Final Customer Analytics Dataset
 
-Customer information is combined with log-derived features and transaction-level date aggregations to create a **customer-centric analytical view**.
+The different datasets are combined to create a consolidated customer-level analytical dataset.
 
-The resulting dataset contains features such as:
+The final dataset contains fields such as:
 
 ```text
 customer_id
@@ -328,6 +231,8 @@ profit
 claim_ratio
 risk_level
 premium_category
+first_transaction
+last_transaction
 log_count
 error_count
 first_log
@@ -337,141 +242,124 @@ has_payment
 days_since_last_log
 ```
 
-This provides a unified view of **financial behavior, risk indicators, transaction activity, and application activity** at the customer level.
+This consolidated dataset brings together:
+
+* Customer information
+* Financial metrics
+* Risk indicators
+* Transaction activity
+* Application log activity
 
 ---
 
-# 🏗️ Data Modeling
+## ⭐ Data Model
 
-The project applies **dimensional data modeling principles** to organize the processed datasets.
+The project includes a **Star Schema** data model to represent relationships between customer activity, transactions, policies, and logs.
 
-The repository includes a visual representation of the proposed **Star Schema**:
+The data model diagram is available here:
 
-```text
-                 ┌───────────────────┐
-                 │   Dim Customer    │
-                 └─────────┬─────────┘
-                           │
-                           │
-┌───────────────────┐      ▼      ┌───────────────────┐
-│    Dim Policy     │──── Facts ──│  Dim Date/Other   │
-└───────────────────┘             └───────────────────┘
-                           │
-                           │
-                 ┌─────────┴─────────┐
-                 │ Analytical Facts  │
-                 │ / Customer Logs   │
-                 │ / Transactions    │
-                 └───────────────────┘
-```
-
-### Data Model Diagram
-
-[View the Star Schema](Data%20Model/Star-Schema_CustomerActivityAndTransactionAnalysis.png)
-
-The modeling approach separates **descriptive customer/policy attributes** from **transactional and activity-oriented data**, making the processed datasets suitable for downstream reporting and analytics.
+`Data Model/Star-Schema_CustomerActivityAndTransactionAnalysis.png`
 
 ---
 
-# 🧹 Data Quality Checks
+## 🔍 Data Quality Checks
 
-The project incorporates several data-quality checks throughout the pipeline.
+Data processing includes validation steps such as:
 
-### Checks performed
+* Checking dataset structure
+* Checking data types
+* Checking missing values
+* Identifying duplicate records
+* Standardizing text fields
+* Validating date fields
+* Validating numerical fields
 
-* **Null-value checks**
-* **Duplicate detection**
-* **Data-type validation**
-* **Negative-value checks**
-* **Claim vs. premium validation**
-* **Missing key validation**
-* **Invalid policy ID validation**
-* **Date conversion validation**
-* **Post-cleaning quality checks**
-
-For example, customer financial fields are checked for negative values and cases where claim amount exceeds premium amount.
-
-Transaction records are also checked for missing values before and after the cleaning process.
+These checks help ensure that the processed datasets are suitable for downstream analysis.
 
 ---
 
-# 🛠️ Technologies & Skills Demonstrated
+## 🛠️ Technologies & Skills
 
 ### Programming & Analysis
 
 * **Python**
 * **Pandas**
+* **NumPy**
 * **Jupyter Notebook**
 
 ### Data Processing
 
-* CSV processing
-* Excel processing
-* JSON processing
-* Text/log parsing
-* Data type conversion
-* Missing-value handling
-* Duplicate removal
-* Regular expressions
-* Group-by aggregation
-* Data merging
-
-### Analytics
-
+* **Data Cleaning**
+* **Data Profiling**
+* **Data Transformation**
 * **Feature Engineering**
-* **Customer Segmentation**
-* **Risk Classification**
-* **Transaction Analysis**
-* **Log Analysis**
-* **Data Quality Validation**
-* **Customer-Level Aggregation**
+* **Data Aggregation**
+* **Regular Expressions**
+
+### Data Sources & Formats
+
+* **CSV**
+* **Excel**
+* **JSON**
+* **TXT**
 
 ### Data Modeling
 
 * **Dimensional Modeling**
 * **Star Schema**
-* Dimension Tables
-* Fact-oriented Analytical Tables
 
 ---
 
-# 📁 Key Project Files
+## 📁 Key Project Files
 
-| File                                                     | Description                                            |
-| -------------------------------------------------------- | ------------------------------------------------------ |
-| `Customer Log Analytics & Feature Engineering.ipynb`     | Main Python analytics and feature-engineering workflow |
-| `customers.csv`                                          | Raw customer dataset                                   |
-| `policies.xlsx`                                          | Raw policy dataset                                     |
-| `transactions.json`                                      | Raw transaction dataset                                |
-| `logs.txt`                                               | Raw application log dataset                            |
-| `Star-Schema_CustomerActivityAndTransactionAnalysis.png` | Data model visualization                               |
-
----
-
-# 🚀 Project Outcome
-
-This project demonstrates the complete journey from **raw heterogeneous data to structured analytical data**.
-
-The workflow combines:
-
-**Data Profiling → Data Cleaning → Data Quality Checks → Feature Engineering → Aggregation → Data Modeling → Analytical Dataset Creation**
-
-The final customer-level dataset brings together **financial metrics, risk classifications, transaction activity, and application-log behavior**, providing a foundation for further **business intelligence, dashboarding, customer analysis, and reporting**.
+| File                                                     | Description                                           |
+| -------------------------------------------------------- | ----------------------------------------------------- |
+| `Customer Log Analytics & Feature Engineering.ipynb`     | Main Python analysis and feature engineering notebook |
+| `customers.csv`                                          | Raw customer data                                     |
+| `policies.xlsx`                                          | Raw policy data                                       |
+| `transactions.json`                                      | Raw transaction data                                  |
+| `logs.txt`                                               | Raw application log data                              |
+| `Star-Schema_CustomerActivityAndTransactionAnalysis.png` | Star Schema data model                                |
 
 ---
 
-## 📌 Future Enhancements
+## 🚀 Project Outcome
+
+The project demonstrates a complete **data analytics pipeline** starting from raw multi-source data and progressing through:
+
+```text
+Data Ingestion
+      ↓
+Data Profiling
+      ↓
+Data Cleaning
+      ↓
+Feature Engineering
+      ↓
+Transaction Aggregation
+      ↓
+Log Analytics
+      ↓
+Customer-Level Dataset
+      ↓
+Data Modeling
+```
+
+The resulting structured dataset can support further analysis, reporting, visualization, and business intelligence use cases.
+
+---
+
+## 🔮 Future Enhancements
 
 Potential extensions to the project include:
 
-* Build an interactive **Power BI dashboard**
-* Add SQL-based analytical queries
-* Create automated data-validation checks
-* Add additional customer segmentation techniques
-* Develop time-based transaction analysis
-* Add KPI reporting
-* Automate the data-cleaning pipeline
-* Connect the modeled datasets to a relational database
+* Building an interactive **Power BI dashboard**
+* Adding customer segmentation
+* Performing deeper statistical analysis
+* Developing predictive models
+* Automating the data pipeline
+* Adding additional business KPIs
+* Extending the dimensional model for reporting
 
 ---
 
@@ -479,7 +367,6 @@ Potential extensions to the project include:
 
 **Darshini R**
 
-Data Analytics | AI Engineering | Python | SQL | Power BI | Data Engineering
+Data Analytics | AI Engineering | Python | SQL | Power BI
 
-[GitHub Portfolio](https://github.com/Darsh0714/My_Portfolio)
-
+GitHub: [Darsh0714](https://github.com/Darsh0714)
