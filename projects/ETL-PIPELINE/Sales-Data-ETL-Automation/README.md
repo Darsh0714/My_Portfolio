@@ -27,13 +27,13 @@ The main objectives of this project are to:
 
 ## Data Sources
 
-The project uses multiple monthly sales CSV files stored inside the `raw_data/` directory.
+The project uses multiple monthly sales CSV files stored inside the `raw data/` directory.
 
 ### Raw Sales Files
 
-- `sales_jan.csv`
-- `sales_feb.csv`
-- `sales_mar.csv`
+- `JAN_Sales.csv`
+- `FEB_Sales.csv`
+- `MAR_Sales.csv`
 
 Each sales file contains columns such as:
 
@@ -123,9 +123,9 @@ The pipeline is designed to avoid manually loading each monthly file individuall
 For example, instead of explicitly loading:
 
 ```text
-sales_jan.csv
-sales_feb.csv
-sales_mar.csv
+`JAN_Sales.csv`
+`FEB_Sales.csv`
+`MAR_Sales.csv`
 ```
 
 the pipeline searches the input directory for available CSV files.
@@ -223,17 +223,22 @@ The chart can help identify:
 # Project Structure
 
 ```text
-ETL_Automation_Project/
-│
+ETL_PIPELINE/
+├── Images/
+│   ├──ETL-Bar-Chart.png
+│ 
+├── Result/
+│   ├──Sales_ETL.ipynb
+│ 
 ├── raw_data/
-│   ├── sales_jan.csv
-│   ├── sales_feb.csv
-│   └── sales_mar.csv
-│
-├── sales_etl.ipynb
-│
+│   ├── JAN_Sales.csv
+│   ├── FEB_Sales.csv
+│   └── MAR_Sales.csv
+│ 
 ├── output_data/
-│   └── clean_sales_sampleoutputfiles.csv
+│   ├── clean_sales_sampleoutputfiles.csv
+│
+├── ETL-project-details.html
 │
 └── README.md
 ```
@@ -245,10 +250,10 @@ ETL_Automation_Project/
 | File / Directory                    | Description                                  |
 | ----------------------------------- | -------------------------------------------- |
 | `raw_data/`                         | Contains the raw monthly sales CSV files     |
-| `sales_jan.csv`                     | January sales data                           |
-| `sales_feb.csv`                     | February sales data                          |
-| `sales_mar.csv`                     | March sales data                             |
-| `sales_etl.ipynb`                   | Jupyter Notebook containing the ETL pipeline |
+| `JAN_Sales.csv`                     | January sales data                           |
+| `FEB_Sales.csv`                     | February sales data                          |
+| `MAR_Sales.csv`                     | March sales data                             |
+| `Sales_ETL.ipynb`                   | Jupyter Notebook containing the ETL pipeline |
 | `output_data/`                      | Contains processed output files              |
 | `clean_sales_sampleoutputfiles.csv` | Cleaned and consolidated sales dataset       |
 | `README.md`                         | Project documentation                        |
@@ -367,9 +372,9 @@ For example:
 
 ```text
 raw_data/
-├── sales_jan.csv
-├── sales_feb.csv
-└── sales_mar.csv
+├── JAN_Sales.csv
+├── FEB_Sales.csv
+└── MAR_Sales.csv
 ```
 
 ---
