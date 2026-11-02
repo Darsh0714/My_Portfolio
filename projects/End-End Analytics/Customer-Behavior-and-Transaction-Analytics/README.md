@@ -1,4 +1,4 @@
-# Customer Behavior & Transaction Analytics – End-to-End Data Analytics Project
+# Customer Behavior and Transaction Analytics
 
 ## 📌 Project Overview
 
