@@ -223,24 +223,28 @@ The chart can help identify:
 # Project Structure
 
 ```text
-ETL_PIPELINE/
-├── Images/
-│   ├──ETL-Bar-Chart.png
-│ 
-├── Result/
-│   ├──Sales_ETL.ipynb
-│ 
-├── raw_data/
-│   ├── JAN_Sales.csv
-│   ├── FEB_Sales.csv
-│   └── MAR_Sales.csv
-│ 
-├── output_data/
-│   ├── clean_sales_sampleoutputfiles.csv
-│
-├── ETL-project-details.html
-│
-└── README.md
+ETL-PIPELINE
+  ├── Sales-Data-ETL-Automation/
+    |
+    ├── Images/
+    │     ├──ETL-Bar-Chart.png
+    │ 
+    ├── Result/
+    │    ├──Sales_ETL.ipynb
+    │ 
+    ├── raw_data/
+    │     ├── JAN_Sales.csv
+    │     ├── FEB_Sales.csv
+    │     └── MAR_Sales.csv
+    │ 
+    ├── output_data/
+    │   ├── clean_sales_sampleoutputfiles.csv
+    │
+    ├── ETL-project-details.html
+    │
+    └── README.md
+
+
 ```
 
 ---
