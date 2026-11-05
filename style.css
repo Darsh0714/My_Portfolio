@@ -234,61 +234,8 @@ margin-top:40px;
   color: #555;
   margin-bottom: 12px;
 }
-/*.experience-cards {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
 
-.exp-card {
-  background: #fff;
-  border-radius: 8px;
-  padding: 15px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.exp-card h3 {
-  font-size: clamp(1.2rem, 3vw, 1.5rem);
-  margin-bottom: 8px;
-}
-
-.exp-card p {
-  font-size: clamp(0.85rem, 2vw, 1rem);
-}*/
-
-/* ===== Skills Section ===== */
-/* .skills-section {
-  padding: 80px 20px;
-}
-
-.skills-section h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: clamp(1.8rem, 4vw, 2rem);
-}
-
-.skills-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-}
-
-.skill-card {
-  background: #000;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 6px;
-  font-size: clamp(0.85rem, 2vw, 1rem);
-  transition: background 0.3s ease;
-}
-
-.skill-card:hover {
-  background: #333;
-} */
-
-/* ===== Projects Section ===== */
+/* ===== Projects Section ===== 
 .projects-section {
   background: #fff;
   padding: 60px 20px;
@@ -301,7 +248,7 @@ margin-top:40px;
   color: #222;
 }
 
-/* Grid layout */
+/* Grid layout 
 .projects-grid {
   display: grid;
   gap: 0.5rem; 
@@ -311,14 +258,14 @@ margin-top:40px;
   align-items: stretch;
 }
 
-/* Card wrapper */
+/* Card wrapper 
 .project-card {
   perspective: 1000px;
   width: 280px;
   height: 320px;
 }
 
-/* Flip inner container */
+/* Flip inner container 
 .card-inner {
   position: relative;
   width: 100%;
@@ -344,13 +291,13 @@ margin-top:40px;
   z-index: 0;
 }
 
-/* Ensure front doesn’t block clicks */
+/* Ensure front doesn’t block clicks 
 .card-front {
   pointer-events: none;
   z-index: 0;
 }
 
-/* Allow full clickability on back (button area) */
+/* Allow full clickability on back (button area) 
 .card-back {
   transform: rotateY(180deg);
   z-index: 1;
@@ -358,7 +305,7 @@ margin-top:40px;
 }
 
 
-/* Front face */
+/* Front face 
 .card-front {
   background: #fff;
   display: flex;
@@ -366,7 +313,7 @@ margin-top:40px;
   justify-content: flex-end;
   align-items: center;
   text-align: center;
-  pointer-events: none; /* allow clicks on back side */
+  pointer-events: none;  /* allow clicks on back side 
 }
 
 .card-front img {
@@ -389,7 +336,7 @@ margin-top:40px;
   font-size: 1rem;
 }
 
-/* Back face */
+/* Back face 
 .card-back {
   background: #1e293b;
   color: #fff;
@@ -401,7 +348,7 @@ margin-top:40px;
   pointer-events: auto; /* button clickable */
 }
 
-/* Text on back */
+/* Text on back 
 .card-back h3 {
   color: #60a5fa;
   font-size: 1.1rem;
@@ -419,7 +366,7 @@ margin-top:40px;
   padding-left: 18px;
 }
 
-/* View button */
+/* View button 
 .project-btn {
   display: inline-block;
   background: #facc15;
@@ -438,6 +385,7 @@ margin-top:40px;
 .project-btn:hover {
   background: #fbbf24;
 }
+*/
 
 
 /* ===== Contact Section ===== */
@@ -495,7 +443,7 @@ footer {
 }
 
  
-
+/*
 .skills-section {
   padding: 80px 40px;
   background: #fafafa;
@@ -554,6 +502,7 @@ footer {
   transition: background 0.2s ease, transform 0.15s ease;
   cursor: default;
 }
+*/
  
 .skill-card:hover {
   background: #333;
