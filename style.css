@@ -4,7 +4,282 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* =========================================
+   RESPONSIVE EXPERIENCE LAYOUT
+   Desktop: Side by side
+   Tablet: Stacked
+   Mobile: Compact stacked layout
+========================================= */
 
+/* Desktop */
+.experience-layout {
+    display: grid;
+    grid-template-columns: minmax(230px, 0.8fr) minmax(0, 2fr);
+    align-items: start;
+    gap: 30px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+.experience-layout > * {
+    min-width: 0;
+}
+
+.experience-layout .about-section {
+    min-width: 0;
+    padding: 0;
+}
+
+.experience-layout .experience-section {
+    min-width: 0;
+    width: 100%;
+    padding: 0;
+}
+
+.experience-layout .about-container {
+    display: block;
+}
+
+.experience-layout .career-timeline {
+    position: sticky;
+    top: 90px;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
+
+.experience-layout .experience-list {
+    width: 100%;
+    min-width: 0;
+}
+
+.experience-layout .experience-card {
+    width: 100%;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+
+    .experience-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 0 25px;
+    }
+
+    .experience-layout .career-timeline {
+        position: static;
+        max-width: 750px;
+        margin: 0 auto;
+    }
+
+    .experience-layout .experience-section {
+        padding: 0;
+    }
+
+    .experience-layout .experience-list {
+        max-width: 100%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .experience-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        padding: 0 15px;
+    }
+
+    .experience-layout .about-section {
+        width: 100%;
+    }
+
+    .experience-layout .career-timeline {
+        position: static;
+        width: 100%;
+        padding: 10px 0 10px 25px;
+    }
+
+    .experience-layout .timeline-item {
+        padding-left: 20px;
+    }
+
+    .experience-layout .timeline-dot {
+        left: -23px;
+    }
+
+    .experience-layout .timeline-content {
+        padding: 14px;
+    }
+
+    .experience-layout .experience-section {
+        width: 100%;
+        padding: 45px 0;
+    }
+
+    .experience-layout .experience-intro {
+        margin-bottom: 30px;
+    }
+
+    .experience-layout .experience-card {
+        width: 100%;
+        padding: 20px 16px;
+    }
+
+    .experience-layout .experience-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .experience-layout .role-heading {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .experience-layout .experience-points {
+        padding-left: 18px;
+    }
+
+    .experience-layout .education-card {
+        width: 100%;
+        padding: 18px;
+    }
+}
+
+/* Very small mobile screens */
+@media (max-width: 400px) {
+
+    .experience-layout {
+        padding: 0 10px;
+    }
+
+    .experience-layout .timeline-content {
+        padding: 12px;
+    }
+
+    .experience-layout .experience-card {
+        padding: 18px 13px;
+    }
+
+    .experience-layout .experience-points li {
+        font-size: 0.85rem;
+        overflow-wrap: anywhere;
+    }
+
+    .experience-layout .experience-tags {
+        gap: 6px;
+    }
+
+    .experience-layout .experience-tags span {
+        font-size: 0.72rem;
+        padding: 5px 8px;
+    }
+}
+
+/* =========================================
+   GLOBAL MOBILE OVERFLOW PROTECTION
+========================================= */
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    img,
+    video {
+        max-width: 100%;
+    }
+
+    .hero-container,
+    .contact-container,
+    .skills-projects-section,
+    .projects-grid {
+        min-width: 0;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero-section {
+        min-height: auto;
+        padding: 55px 20px;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .hero-visual {
+        min-height: 330px;
+    }
+
+    .hero-image-frame {
+        width: min(75%, 290px);
+    }
+
+    .hero-float-card {
+        left: 0;
+        bottom: 5px;
+    }
+
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .contact-left,
+    .contact-right {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+/* Single-column projects on small phones */
+@media (max-width: 500px) {
+
+    .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .hero-name {
+        font-size: clamp(2.3rem, 10vw, 3rem);
+    }
+
+    .hero-buttons {
+        gap: 10px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 11px 17px;
+        font-size: 0.88rem;
+    }
+
+    .skill-panel {
+        padding: 18px 14px;
+    }
+
+    .category-filters {
+        gap: 7px;
+    }
+
+    .filter-btn {
+        padding: 8px 12px;
+        font-size: 0.78rem;
+    }
+
+    .education-card {
+        flex-wrap: wrap;
+    }
+}
 body {
   font-family: 'Arial', sans-serif;
   background: #fefdfc;
@@ -809,7 +1084,37 @@ margin-top:40px;
 }
 
 /* Responsive Design */
+@media (max-width: 600px) {
 
+    .experience-card {
+        width: 100%;
+        padding: 20px 16px;
+    }
+
+    .experience-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .experience-points {
+        padding-left: 18px;
+    }
+
+    .experience-points li {
+        overflow-wrap: anywhere;
+        line-height: 1.7;
+    }
+
+    .experience-tags {
+        gap: 7px;
+    }
+
+    .experience-tags span {
+        font-size: 0.75rem;
+        padding: 6px 9px;
+    }
+}
 @media (max-width: 600px) {
 
     .experience-section {
@@ -1301,27 +1606,29 @@ footer {
         align-items: flex-start;
     }
 }
-  .experience-layout {
+  /* Experience Layout - Desktop */
+
+.experience-layout {
     display: grid;
     grid-template-columns: minmax(230px, 0.8fr) minmax(0, 2fr);
     align-items: start;
-    gap: 30px;
+    gap: 35px;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 30px;
 }
 
 .career-timeline {
     position: sticky;
     top: 100px;
     min-width: 0;
-    max-width: none;
-    margin: 0;
 }
 
 .experience-list {
     min-width: 0;
-    margin: 0;
 }
+
+/* /* Tablet 
 
 @media (max-width: 900px) {
     .experience-layout {
@@ -1333,7 +1640,13 @@ footer {
     }
 }
 
-    .project-image {
-        height: 200px;
+/* Mobile 
+
+@media (max-width: 600px) {
+    .experience-layout {
+        display: flex;
+        flex-direction: column;
+        padding: 0 5px;
+        gap: 25px;
     }
-}
+} */
