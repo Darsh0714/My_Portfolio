@@ -45,3 +45,66 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const projectCards = document.querySelectorAll(".project-card");
+  const skillPanels = document.querySelectorAll(".skill-panel");
+
+  const projectCount = document.getElementById("project-count");
+  const noProjects = document.getElementById("no-projects");
+
+  filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      const selectedFilter = button.dataset.filter;
+
+      // Update active button
+      filterButtons.forEach(btn => {
+        btn.classList.remove("active");
+      });
+
+      button.classList.add("active");
+
+      // Show matching skills panel
+      skillPanels.forEach(panel => {
+        panel.classList.toggle(
+          "active",
+          panel.dataset.panel === selectedFilter
+        );
+      });
+
+      // Filter projects
+      let visibleCount = 0;
+
+      projectCards.forEach(card => {
+
+        const categories = card.dataset.category.split(" ");
+
+        const shouldShow =
+          selectedFilter === "all" ||
+          categories.includes(selectedFilter);
+
+        card.hidden = !shouldShow;
+
+        if (shouldShow) {
+          visibleCount++;
+        }
+
+      });
+
+      // Update project count
+      projectCount.textContent =
+        `${visibleCount} ${visibleCount === 1 ? "Project" : "Projects"}`;
+
+      // Empty state
+      noProjects.hidden = visibleCount !== 0;
+
+    });
+
+  });
+
+});
+
