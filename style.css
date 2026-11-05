@@ -1055,7 +1055,7 @@ footer {
     .projects-header {
         align-items: flex-start;
     }
-
+}
   .experience-layout {
     display: grid;
     grid-template-columns: minmax(230px, 0.8fr) minmax(0, 2fr);
