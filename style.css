@@ -37,73 +37,114 @@ margin-top:40px;
   text-decoration: none;
 }
 
-/* Nav links */
 .main-nav {
-  display: block;
+    display: block;
 }
 
 .main-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
 }
 
 .main-nav a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  font-size: clamp(0.9rem, 1vw, 1rem);
-  transition: color 0.3s ease;
+    position: relative;
+    text-decoration: none;
+    color: #334155;
+    font-weight: 500;
+    font-size: clamp(0.9rem, 1vw, 1rem);
+    transition: color 0.3s ease;
+}
+
+.main-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #2563EB;
+    transition: width 0.3s ease;
 }
 
 .main-nav a:hover {
-  color: #555;
+    color: #2563EB;
 }
 
-/* Hamburger button */
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+/* Hamburger Button */
+
 .menu-toggle {
-  display: none;
-  cursor: pointer;
-  font-size: 28px;
-  user-select: none;
-  transition: transform 0.3s ease;
+    display: none;
+    cursor: pointer;
+    font-size: 28px;
+    user-select: none;
+    color: #172554;
+    transition: transform 0.3s ease;
 }
 
-.menu-toggle.active::before {
-  content: "✖"; /* changes ☰ to X when active */
+.menu-toggle.active {
+    transform: rotate(90deg);
 }
 
-/* Mobile nav */
+/* Mobile Navigation */
+
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
 
-  .main-nav {
-    display: block;
-    position: absolute;
-    top: 60px;
-    right: -100%; /* hidden off screen */
-    background: #fff;
-    border-radius: 8px 0 0 8px;
-    box-shadow: -2px 0 8px rgba(0,0,0,0.2);
-    transition: right 0.3s ease;
-    width: 200px;
-    z-index: 999;
-  }
+    .menu-toggle {
+        display: block;
+        z-index: 1001;
+    }
 
-  .main-nav.active {
-    right: 20px; /* slide in */
-  }
+    .main-nav {
+        display: block;
+        position: absolute;
+        top: 60px;
+        right: -250px;
+        width: 220px;
+        background: #FFFFFF;
+        border: 1px solid #E2E8F0;
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.12);
+        transition: right 0.3s ease;
+        z-index: 1000;
+    }
 
-  .main-nav ul {
-    flex-direction: column;
-    padding: 10px;
-  }
+    .main-nav.active {
+        right: 15px;
+    }
 
-  .main-nav a {
-    font-size: clamp(0.9rem, 3vw, 1.1rem);
-  }
+    .main-nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 12px;
+    }
+
+    .main-nav li {
+        width: 100%;
+    }
+
+    .main-nav a {
+        display: block;
+        padding: 13px 10px;
+        font-size: 1rem;
+    }
+
+    .main-nav a::after {
+        display: none;
+    }
+
+    .main-nav a:hover {
+        background: #EFF6FF;
+        border-radius: 6px;
+    }
 }
 
 /* ===== Hero Section ===== */
