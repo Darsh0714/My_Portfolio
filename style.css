@@ -1056,6 +1056,38 @@ footer {
         align-items: flex-start;
     }
 
+  .experience-layout {
+    display: grid;
+    grid-template-columns: minmax(230px, 0.8fr) minmax(0, 2fr);
+    align-items: start;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.career-timeline {
+    position: sticky;
+    top: 100px;
+    min-width: 0;
+    max-width: none;
+    margin: 0;
+}
+
+.experience-list {
+    min-width: 0;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .experience-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .career-timeline {
+        position: static;
+    }
+}
+
     .project-image {
         height: 200px;
     }
